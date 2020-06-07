@@ -15,6 +15,7 @@ export class RangeDatePickerComponent implements OnInit {
   @Input() public from;
   @Input() public to;
   @Input() public calendarPosition;
+  @Input() public title;
   public calendarPositionClass;
 
   public initialFrom;

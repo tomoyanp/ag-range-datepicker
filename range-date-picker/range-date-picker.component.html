@@ -58,7 +58,7 @@
 
 <div class="form-contents">
     <div class="label">
-        <span>From(YYYY/MM/DD) - To(YYYY/MM/DD)</span>
+        <span>{{ title }}</span>
     </div>
     <div class="form">
         <input type="text" [ngModel]="showDate" (focusout)="setDate($event.target.value)">

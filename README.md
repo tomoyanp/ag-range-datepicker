@@ -12,10 +12,11 @@
 好きなところに配置してカスタムディレクティブとして呼ぶだけ
 
 ```
-<app-range-date-picker [minDate]="minDate" [maxDate]="maxDate" [from]="from" [to]="to" calendarPosition="bottom" (eventEmitter)="onEvent($event)"></app-range-date-picker>
+<app-range-date-picker [title]="title" [minDate]="minDate" [maxDate]="maxDate" [from]="from" [to]="to" calendarPosition="bottom" (eventEmitter)="onEvent($event)"></app-range-date-picker>
 ```
 
 ### Pass Valiables 
+* title = 表示タイトル
 * minDate = 指定出来る最小値  
 * maxDate = 指定出来る最大値  
 * from = 開始時点の初期値  

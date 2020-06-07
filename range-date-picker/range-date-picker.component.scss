@@ -13,7 +13,7 @@
 }
 
 .calendar {
-    padding: 20px;
+    padding: 10px 10px 0 10px;
     width: 300px;
     background-color: rgba(255, 255, 255);
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
@@ -35,9 +35,9 @@
 //}
 
 .header {
-    margin: 10px 0 10px 0;
+    margin: 0 0 10px 0;
     display: flex;
-    font-size: 20px;
+    font-size: 16px;
     align-items: center;
 }
 
@@ -64,14 +64,14 @@ table {
 }
 
 th, td {
-    padding: 5px;
+    //padding: 2px;
     text-align: center;
     vertical-align: middle;
 }
 
 td {
-    height: 30px;
-    width: 30px;
+    //height: 20px;
+    //width: 20px;
     //border: solid 1px rgba(0, 0, 0, 0.3);
 }
 
@@ -100,7 +100,7 @@ td {
 }
 
 .form > fa-icon {
-    font-size: 20px;
+    font-size: 22px;
     margin: 0 10px 0 10px;
     cursor: pointer;
 }
@@ -108,21 +108,20 @@ td {
 .form > input {
     margin: 10px 0 10px 0;
     padding: 10px;
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 5px;
     border: solid 1px rgba(0, 0, 0, 0.3);
 }
 
 .form > input:focus {
     outline: 1px rgba(0, 174, 255, 0.3) solid;
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 5px;
 }
 
 
 .footer-area {
-    margin: 10px 0 0 0;
-    padding: 0 10px 0 10px;
+    margin: 10px 10px 10px 0;
     display: flex;
 }
 
