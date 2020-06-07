@@ -12,7 +12,7 @@
 好きなところに配置してカスタムディレクティブとして呼ぶだけ
 
 ```
-<app-range-date-picker [minDate]="minDate" [maxDate]="maxDate" [from]="from" [to]="to" (eventEmitter)="onEvent($event)"></app-range-date-picker>
+<app-range-date-picker [minDate]="minDate" [maxDate]="maxDate" [from]="from" [to]="to" calendarPosition="bottom" (eventEmitter)="onEvent($event)"></app-range-date-picker>
 ```
 
 ### Pass Valiables 
@@ -20,6 +20,7 @@
 * maxDate = 指定出来る最大値  
 * from = 開始時点の初期値  
 * to = 終了時点の初期値  
+* callendarPosition = カレンダーを表示する位置（top or bottom)
 * eventEmitter = 範囲指定後にオブジェクトを受け取るメソッドを指定。
 
 $eventのデータ構造は下記
