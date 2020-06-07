@@ -1,0 +1,140 @@
+.range-date-picker {
+    position: relative;
+}
+.calendar-outer-top {
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+}
+.calendar-outer-bottom {
+    position: absolute;
+    top: 100px;
+    left: 0;
+}
+
+.calendar {
+    padding: 20px;
+    width: 300px;
+    background-color: rgba(255, 255, 255);
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    //align-items: start;
+    //justify-content: center;
+    position: relative;
+}
+
+//.calendar:before {
+//    content: "";
+//    position: absolute;
+//    top: 100%;
+//    left: 10%;
+//    margin-left: -15px;
+//    border: 15px solid transparent;
+//    border-top: 15px solid rgba(255, 255, 255);
+//}
+
+.header {
+    margin: 10px 0 10px 0;
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+}
+
+.default, .active {
+    cursor: pointer;
+}
+
+.default:hover {
+    background-color: rgba(0, 137, 200, 0.3);
+}
+
+.disable {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.active {
+    background-color: rgba(0, 137, 200, 0.3);
+    color: white;
+}
+
+table {
+    border-spacing: 0 !important;
+    border-collapse: collapse !important;
+}
+
+th, td {
+    padding: 0 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+td {
+    height: 30px;
+    width: 30px;
+    //border: solid 1px rgba(0, 0, 0, 0.3);
+}
+
+.icon {
+    width: 30px;
+    margin: 0 10px 0 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.month {
+    width: 50px;
+    text-align: center;
+}
+
+.date {
+    margin: 10px 0 10px 0;
+}
+
+.form-contents {
+    margin: 15px 0 15px 0;
+}
+
+.error {
+    color: rgba(200, 0, 0, 1.0);
+}
+
+.form > fa-icon {
+    font-size: 20px;
+    margin: 0 10px 0 10px;
+    cursor: pointer;
+}
+
+.form > input {
+    margin: 10px 0 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: solid 1px rgba(0, 0, 0, 0.3);
+}
+
+.form > input:focus {
+    outline: 1px rgba(0, 174, 255, 0.3) solid;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+
+.footer-area {
+    margin: 10px 0 0 0;
+    padding: 0 10px 0 10px;
+    display: flex;
+}
+
+.button-area {
+    margin: 0 0 0 auto;
+}
+
+.button-area > .cancel {
+    height: 30px;
+}
+
+.button-area > .ok {
+    margin: 0 0 0 auto;
+    height: 30px;
+}

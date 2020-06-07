@@ -1,0 +1,72 @@
+<div class="range-date-picker">
+<div [class]="calendarPositionClass">
+
+<div class="calendar" *ngIf="displayCalendar">
+    <div class="header">
+        <div class="title">{{ selectYear }}年</div>
+        <div class="icon" (click)="changeMonth(selectMonth - 1)" *ngIf="minYear != selectYear || minMonth != selectMonth"><fa-icon [icon]="pagingLeft"></fa-icon></div>
+        <div class="icon disable" *ngIf="minYear == selectYear && minMonth == selectMonth"><fa-icon [icon]="pagingLeft"></fa-icon></div>
+        <div class="month">{{ selectMonth + 1 }}月</div>
+        <div class="icon" (click)="changeMonth(selectMonth + 1)" *ngIf="maxYear != selectYear || maxMonth != selectMonth"><fa-icon [icon]="pagingRight"></fa-icon></div>
+        <div class="icon disable" *ngIf="maxYear == selectYear && maxMonth == selectMonth"><fa-icon [icon]="pagingRight"></fa-icon></div>
+    </div>
+    <table>
+        <tr>
+            <th>
+                日
+            </th>
+            <th>
+               月 
+            </th>
+            <th>
+               火 
+            </th>
+            <th>
+               水 
+            </th>
+            <th>
+               木 
+            </th>
+            <th>
+               金 
+            </th>
+            <th>
+               土 
+            </th>
+        </tr>
+        <tr *ngFor="let line of showCalendar">
+          <ng-container *ngFor="let cell of line">
+            <td *ngIf="cell.status" [class]="cell.class" (click)="selectDate(cell.year, cell.month, cell.date)">
+                <span class="cell">{{ cell.date }}</span>
+            </td>
+            <td *ngIf="!cell.status" [class]="cell.class">
+                <span class="cell">{{ cell.date }}</span>
+            </td>
+          </ng-container>
+        </tr>
+    </table>
+    <div class="footer-area">
+        <div class="error">
+            {{ errorCalMessage }}
+        </div>
+        <div class="button-area">
+            <button class="ok" (click)="emitDate()">OK</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="form-contents">
+    <div class="label">
+        <span>From(YYYY/MM/DD) - To(YYYY/MM/DD)</span>
+    </div>
+    <div class="form">
+        <input type="text" [ngModel]="showDate" (focusout)="setDate($event.target.value)">
+        <fa-icon (click)="displayCalendar = !displayCalendar" [icon]="calendarIcon"></fa-icon>
+    </div>
+    <div class="error">
+        {{ errorMessage }}
+    </div>
+</div>
+
+</div>
