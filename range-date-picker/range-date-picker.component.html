@@ -9,6 +9,9 @@
         <div class="month">{{ selectMonth + 1 }}月</div>
         <div class="icon" (click)="changeMonth(selectMonth + 1)" *ngIf="maxYear != selectYear || maxMonth != selectMonth"><fa-icon [icon]="pagingRight"></fa-icon></div>
         <div class="icon disable" *ngIf="maxYear == selectYear && maxMonth == selectMonth"><fa-icon [icon]="pagingRight"></fa-icon></div>
+        <div class="button-area right">
+            <button (click)="selectToday()">Today</button>
+        </div>
     </div>
     <table>
         <tr>
@@ -49,8 +52,11 @@
         <div class="error">
             {{ errorCalMessage }}
         </div>
-        <div class="button-area">
-            <button class="ok" (click)="emitDate()">OK</button>
+        <div class="button-area left">
+            <button (click)="displayCalendar = false">Cancel</button>
+        </div>
+        <div class="button-area right">
+            <button (click)="emitDate()">OK</button>
         </div>
     </div>
   </div>
