@@ -43,16 +43,18 @@ export class RangeDatePickerComponent implements OnInit {
 
   constructor(private elementRef: ElementRef) { }
 
-  //@HostListener('document:click', ['$event'])
-  //onClickHtmlElement(event: MouseEvent, targetElement: HTMLElement) {
-  //  console.log("hogehogheohgoe");
-  //  //console.log(event.target);
-  //  //console.log(targetElement);
-  //  //console.log(this.elementRef);
-  //  //console.log(this.elementRef.nativeElement.contains(event.target));
-  //  console.log(this.elementRef.nativeElement.childNodes[0].childNodes[0].contains(event.target))
-  //  this.displayCalendar = this.elementRef.nativeElement.contains(event.target) ? true : false;
-  //}
+  @HostListener('document:click', ['$event'])
+  onClickHtmlElement(event: MouseEvent, targetElement: HTMLElement) {
+    if (event.target["tagName"] === "TD") {
+
+    } else if (this.elementRef.nativeElement.querySelector('#calendar')) {
+      const iconFlag = this.elementRef.nativeElement.querySelector('#calendar-icon').contains(event.target) ? true : false;
+      const calendarFlag = this.elementRef.nativeElement.querySelector('#calendar').contains(event.target) ? true : false;
+
+      this.displayCalendar = (iconFlag || calendarFlag) ? true : false;
+
+    }
+  }
 
   ngOnInit(): void {
     this.initialFrom = this.from;
@@ -178,6 +180,7 @@ export class RangeDatePickerComponent implements OnInit {
     }
     this.createCalendar();
     this.createShowDate();
+    this.displayCalendar = true;
   }
 
   changeMonth(month) {

@@ -1,7 +1,7 @@
 <div class="range-date-picker">
 <div [class]="calendarPositionClass">
 
-<div class="calendar" *ngIf="displayCalendar">
+<div id="calendar" class="calendar" *ngIf="displayCalendar">
     <div class="header">
         <div class="title">{{ selectYear }}年</div>
         <div class="icon" (click)="changeMonth(selectMonth - 1)" *ngIf="minYear != selectYear || minMonth != selectMonth"><fa-icon [icon]="pagingLeft"></fa-icon></div>
@@ -40,10 +40,12 @@
         <tr *ngFor="let line of showCalendar">
           <ng-container *ngFor="let cell of line">
             <td *ngIf="cell.status" [class]="cell.class" (click)="selectDate(cell.year, cell.month, cell.date)">
-                <span class="cell">{{ cell.date }}</span>
+                <!--<span class="cell">{{ cell.date }}</span>-->
+                {{ cell.date }}
             </td>
             <td *ngIf="!cell.status" [class]="cell.class">
-                <span class="cell">{{ cell.date }}</span>
+                <!--<span class="cell">{{ cell.date }}</span>-->
+                {{ cell.date }}
             </td>
           </ng-container>
         </tr>
@@ -68,7 +70,7 @@
     </div>
     <div class="form">
         <input type="text" [ngModel]="showDate" (focusout)="setDate($event.target.value)">
-        <fa-icon (click)="displayCalendar = !displayCalendar" [icon]="calendarIcon"></fa-icon>
+        <fa-icon id="calendar-icon" (click)="displayCalendar = !displayCalendar" [icon]="calendarIcon"></fa-icon>
     </div>
     <div class="error">
         {{ errorMessage }}
