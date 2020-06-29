@@ -43,18 +43,19 @@ export class RangeDatePickerComponent implements OnInit {
 
   constructor(private elementRef: ElementRef) { }
 
-  @HostListener('document:click', ['$event'])
-  onClickHtmlElement(event: MouseEvent, targetElement: HTMLElement) {
-    if (event.target["tagName"] === "TD") {
 
-    } else if (this.elementRef.nativeElement.querySelector('#calendar')) {
-      const iconFlag = this.elementRef.nativeElement.querySelector('#calendar-icon').contains(event.target) ? true : false;
-      const calendarFlag = this.elementRef.nativeElement.querySelector('#calendar').contains(event.target) ? true : false;
-
-      this.displayCalendar = (iconFlag || calendarFlag) ? true : false;
-
-    }
-  }
+  // 完全にバグっている
+  // @HostListener('document:click', ['$event'])
+  // onClickHtmlElement(event: MouseEvent, targetElement: HTMLElement) {
+  //   let calendarSelector = this.elementRef.nativeElement.querySelector('#calendar');
+  //   let calendarIconSelector = this.elementRef.nativeElement.querySelector('#calendar-icon');
+  //   if (calendarSelector && calendarIconSelector) {
+  //     if (!calendarSelector.contains(event.target) && !calendarIconSelector.contains(event.target)) {
+  //       console.log(event.target);
+  //       this.cancel();
+  //     }
+  //   }
+  // }
 
   ngOnInit(): void {
     this.initialFrom = this.from;
@@ -199,6 +200,8 @@ export class RangeDatePickerComponent implements OnInit {
   selectToday() {
     this.from = this.today;
     this.to = this.today;
+    this.selectYear = this.from.getFullYear();
+    this.changeMonth(this.from.getMonth());
     this.createCalendar();
     this.createShowDate();
   }
@@ -299,7 +302,19 @@ export class RangeDatePickerComponent implements OnInit {
     this.from = this.initialFrom;
     this.to = this.initialTo;
     this.displayCalendar = false;
+    this.selectYear = this.from.getFullYear();
+    this.changeMonth(this.from.getMonth())
     this.createShowDate();
+  }
+
+  changeDisplay() {
+    if (this.displayCalendar) {
+      this.cancel();
+    } else {
+      this.initialFrom = this.from;
+      this.initialTo = this.to;
+      this.displayCalendar = true;
+    }
   }
 
   public errorCalMessage;
@@ -310,14 +325,15 @@ export class RangeDatePickerComponent implements OnInit {
     } else {
       if (this.to === undefined) {
         this.to = this.from;
-        this.createCalendar();
-        this.createShowDate();
       }
       this.displayCalendar = false;
       this.eventEmitter.emit({
           from: this.from,
           to: this.to
-        });
+      });
+      this.selectYear = this.from.getFullYear();
+      this.changeMonth(this.from.getMonth());
+      this.createShowDate();
     }
   }
 }

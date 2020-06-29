@@ -55,7 +55,7 @@
             {{ errorCalMessage }}
         </div>
         <div class="button-area left">
-            <button (click)="displayCalendar = false">Cancel</button>
+            <button (click)="cancel()">Cancel</button>
         </div>
         <div class="button-area right">
             <button (click)="emitDate()">OK</button>
@@ -69,8 +69,8 @@
         <span>{{ title }}</span>
     </div>
     <div class="form">
-        <input type="text" [ngModel]="showDate" (focusout)="setDate($event.target.value)">
-        <fa-icon id="calendar-icon" (click)="displayCalendar = !displayCalendar" [icon]="calendarIcon"></fa-icon>
+        <input type="text" [ngModel]="showDate" (focusout)="setDate($event.target.value)" (focus)="cancel()">
+        <fa-icon id="calendar-icon" (click)="changeDisplay()" [icon]="calendarIcon"></fa-icon>
     </div>
     <div class="error">
         {{ errorMessage }}
