@@ -17,6 +17,7 @@ export class RangeDatePickerComponent implements OnInit {
   @Input() public title;
   @Input() public today;
   public calendarPositionClass;
+  public errorStatus = false;
 
   public initialFrom;
   public initialTo;
@@ -161,6 +162,7 @@ export class RangeDatePickerComponent implements OnInit {
     this.to = undefined;
     this.errorCalMessage = "";
     this.errorMessage = "";
+    this.errorStatus = false;
   }
 
 
@@ -260,6 +262,9 @@ export class RangeDatePickerComponent implements OnInit {
     let to = tmp[1];
     if (this.validDate(from, to)) {
       this.emitDate();
+      this.errorStatus = false;
+    } else {
+      this.errorStatus = true;
     }
   }
 
@@ -334,6 +339,7 @@ export class RangeDatePickerComponent implements OnInit {
       this.selectYear = this.from.getFullYear();
       this.changeMonth(this.from.getMonth());
       this.createShowDate();
+      this.errorStatus = false;
     }
   }
 }
